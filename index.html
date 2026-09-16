@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="올투딜리셔스 8개 브랜드(교토 오니마루·도제·오코메상·유부로·딜라잇쌈·아이엠바오·꾸온·롤리볼리) 전국 백화점 매장 안내">
+<meta property="og:title" content="올투딜리셔스 매장 안내">
+<meta property="og:description" content="교토 오니마루부터 도제 유부초밥까지, 전국 백화점 식품관 8개 브랜드 매장을 지역별로 찾고 네이버 지도로 바로 가세요.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#6B4A2B">
+<title>올투딜리셔스 매장 안내</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{
+  --paper:#FAF6F0; --card:#FFFFFF; --ink:#26201A; --ink-2:#5F564D; --ink-3:#8E857B; --line:#E8E0D5;
+  --brown:#6B4A2B; --brown-deep:#4A3119; --brown-soft:#F1E7DA; --cream:#F6EEE2;
+  --naver:#03C75A; --kakao:#FEE500;
+  --c-onimaru:#8E3B2F; --c-doje:#6B4A2B; --c-okome:#2F5D50; --c-yuburo:#B8742A; --c-ssam:#4E7A3A; --c-bao:#B23A48; --c-quon:#2E6E8E; --c-rolly:#7A5BA3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1A1512; --card:#241D18; --ink:#F0E8DD; --ink-2:#C9BDAF; --ink-3:#8F8478; --line:#3A3028;
+    --brown:#D9B088; --brown-deep:#EBCFAE; --brown-soft:#2E2419; --cream:#2A211A;
+    --c-onimaru:#E08A7A; --c-doje:#D9B088; --c-okome:#8CC7B4; --c-yuburo:#E6B06A; --c-ssam:#9CCB80; --c-bao:#EE8E9A; --c-quon:#86BEDC; --c-rolly:#C3ACE3;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1A1512; --card:#241D18; --ink:#F0E8DD; --ink-2:#C9BDAF; --ink-3:#8F8478; --line:#3A3028;
+  --brown:#D9B088; --brown-deep:#EBCFAE; --brown-soft:#2E2419; --cream:#2A211A;
+  --c-onimaru:#E08A7A; --c-doje:#D9B088; --c-okome:#8CC7B4; --c-yuburo:#E6B06A; --c-ssam:#9CCB80; --c-bao:#EE8E9A; --c-quon:#86BEDC; --c-rolly:#C3ACE3;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR","Source Sans 3",system-ui,sans-serif;font-size:15px;line-height:1.6;padding-inline:16px;padding-block:0 56px}
+.wrap{max-width:640px;margin:0 auto}
+.num{font-family:"Source Sans 3","Noto Sans KR",sans-serif;font-variant-numeric:tabular-nums}
+a{color:inherit}
+
+/* hero */
+.hero{padding:36px 0 22px;border-bottom:1px solid var(--line)}
+.logo{display:inline-block;font-family:"Source Sans 3",sans-serif;font-weight:700;font-size:13px;letter-spacing:.18em;color:var(--brown);text-transform:uppercase}
+.hero h1{font-size:28px;line-height:1.25;margin:10px 0 8px;font-weight:900;text-wrap:balance}
+.hero p{margin:0;color:var(--ink-2);max-width:40ch}
+.stats{display:flex;gap:22px;margin-top:18px}
+.stats div b{display:block;font-size:22px;line-height:1.1;color:var(--brown-deep);font-weight:700}
+.stats div span{font-size:12px;color:var(--ink-3)}
+
+/* brands */
+h2{font-size:17px;margin:30px 0 12px;font-weight:700;display:flex;align-items:baseline;gap:10px}
+h2 small{font-size:12px;color:var(--ink-3);font-weight:500}
+.brands{display:flex;gap:10px;overflow-x:auto;padding:2px 0 10px;margin:0 -16px;padding-inline:16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.brand{flex:0 0 200px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:border-color .15s}
+.brand:hover,.brand.on{border-color:var(--bc)}
+.brand .mono{width:34px;height:34px;border-radius:9px;background:var(--bc);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Source Sans 3",sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em}
+.brand b{font-size:15px;margin-top:2px}
+.brand em{font-style:normal;font-size:12.5px;color:var(--ink-2);line-height:1.45}
+.brand .cnt{font-size:11.5px;color:var(--ink-3);margin-top:auto;padding-top:6px}
+
+/* controls */
+.sticky{position:sticky;top:env(safe-area-inset-top,0px);background:var(--paper);z-index:5;padding:10px 0 8px;margin:0 -16px;padding-inline:16px;border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink-2);border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:inherit}
+.tab.on{background:var(--brown);border-color:var(--brown);color:var(--paper)}
+.tab:focus-visible,.brand:focus-visible,.btn:focus-visible{outline:2px solid var(--brown);outline-offset:2px}
+.filterbar{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12.5px;color:var(--ink-3);min-height:20px}
+.filterbar .x{border:0;background:var(--brown-soft);color:var(--brown-deep);border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:700}
+
+/* stores */
+.region{margin-top:22px}
+.region h3{font-size:13px;letter-spacing:.08em;color:var(--brown);margin:0 0 10px;font-weight:700;display:flex;gap:8px;align-items:baseline}
+.region h3 span{color:var(--ink-3);font-weight:500;letter-spacing:0}
+.store{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.store .head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.store .name{font-weight:700;font-size:16px}
+.store .dept{font-size:12px;color:var(--ink-3);white-space:nowrap}
+.store .new{display:inline-block;font-family:"Source Sans 3",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.08em;background:var(--c-onimaru);color:#fff;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.rows{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:10px;background:var(--cream)}
+.row .bl{display:flex;align-items:center;gap:9px;min-width:0}
+.row .dot{width:10px;height:10px;border-radius:50%;background:var(--bc);flex:0 0 auto}
+.row .bn{font-weight:500;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .bs{font-size:11.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-size:12.5px;font-weight:700;padding:6px 11px;border-radius:8px;background:var(--naver);color:#fff;font-family:inherit}
+.btn.soon{background:transparent;color:var(--ink-3);border:1px dashed var(--line);font-weight:500}
+.empty{color:var(--ink-3);text-align:center;padding:30px 0;font-size:14px}
+
+/* footer */
+.cta{margin-top:34px;background:var(--brown-soft);border-radius:16px;padding:18px 18px 16px}
+.cta b{display:block;font-size:15px;margin-bottom:4px}
+.cta p{margin:0 0 12px;font-size:13.5px;color:var(--ink-2)}
+.cta .kbtn{display:inline-flex;align-items:center;gap:6px;background:var(--kakao);color:#191600;text-decoration:none;font-weight:700;font-size:14px;padding:10px 16px;border-radius:10px;margin-right:8px;margin-bottom:6px}
+.cta .kbtn.o{background:transparent;border:1px solid var(--brown);color:var(--brown-deep)}
+.foot{margin-top:22px;font-size:12px;color:var(--ink-3);line-height:1.6}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <span class="logo">All Too Delicious</span>
+  <h1>올투딜리셔스 매장 안내</h1>
+  <p>교토 오니마루부터 도제 유부초밥까지, 전국 백화점 식품관에서 만나는 8개 브랜드. 가까운 매장을 찾고 네이버 지도로 바로 가세요.</p>
+  <div class="stats">
+    <div><b class="num" id="stStores">0</b><span>매장</span></div>
+    <div><b class="num">8</b><span>브랜드</span></div>
+    <div><b class="num" id="stCities">0</b><span>도시</span></div>
+  </div>
+</header>
+
+<h2>브랜드 <small>카드를 누르면 그 브랜드 매장만 보여요</small></h2>
+<div class="brands" id="brands"></div>
+
+<div class="sticky">
+  <div class="tabs" id="tabs"></div>
+  <div class="filterbar" id="filterbar"></div>
+</div>
+
+<div id="list"></div>
+
+<div class="cta">
+  <b>궁금한 게 있으면 카카오톡으로 물어보세요</b>
+  <p>영업시간, 단체 주문, 알레르기 정보까지 채팅으로 답해드려요. 채널 친구가 되면 웰컴 쿠폰도 드립니다 🍙</p>
+  <a class="kbtn" href="https://pf.kakao.com/_BeUgK/friend">채널 추가하고 쿠폰 받기</a>
+  <a class="kbtn o" href="https://pf.kakao.com/_BeUgK/chat">1:1 채팅 문의</a>
+</div>
+<p class="foot">영업시간은 입점 백화점 식품관 영업시간과 같습니다(보통 10:30~20:00, 백화점 휴점일 휴무). 매장 정보는 2026년 9월 기준이며 변동될 수 있습니다.</p>
+</div>
+
+<script>
+const BRANDS = {
+  onimaru:{name:"교토 오니마루",en:"KO",color:"var(--c-onimaru)",desc:"교토에서 온 오니기리·야끼무스비. 일본 레시피 그대로, 토핑은 한국식으로 넉넉하게.",sig:"명란참치마요 오니기리 · 야끼무스비"},
+  doje:{name:"도제",en:"DJ",color:"var(--c-doje)",desc:"2014년부터 이어온 올투딜리셔스의 원점. 대왕유부초밥과 달마다 바뀌는 토핑 유부초밥.",sig:"대왕유부초밥 · 토핑 유부초밥"},
+  okome:{name:"오코메상",en:"OK",color:"var(--c-okome)",desc:"'쌀의 무한변신'. 유부초밥·오니기리·무스비·라이스샌드를 한자리에서.",sig:"라이스샌드 · 무스비"},
+  yuburo:{name:"유부로",en:"YB",color:"var(--c-yuburo)",desc:"현대백화점에서 만나는 유부초밥. 우리가 가는 길이 곧 유부의 길.",sig:"유부초밥 세트"},
+  ssam:{name:"딜라잇쌈",en:"DS",color:"var(--c-ssam)",desc:"익숙한 쌈에 모던함을 더한 한 끼. 채소와 단백질을 한 손에.",sig:"쌈 도시락"},
+  bao:{name:"아이엠바오",en:"IB",color:"var(--c-bao)",desc:"취향껏 골라 먹는 아메리칸 차이니즈. 바오와 볼 메뉴.",sig:"바오 · 크리스피 포크밸리"},
+  quon:{name:"꾸온",en:"QN",color:"var(--c-quon)",desc:"베트남 여행의 기억을 담은 스프링롤과 베트남 푸드.",sig:"스프링롤 · 포두부롤"},
+  rolly:{name:"롤리볼리",en:"RB",color:"var(--c-rolly)",desc:"가볍게 즐기는 롤. 탄수화물은 덜고 채소는 더한 키토 올인원.",sig:"오이당근롤 · 키토 올인원팩"}
+};
+const N = s => "https://naver.me/" + s;
+const STORES = [
+  // 서울
+  {r:"서울",name:"신세계백화점 강남점",dept:"서초 · 고속터미널",b:[["onimaru",N("GplCIQks")],["doje",N("FNtLgh0S"),"도제 × 박주성 셰프"]]},
+  {r:"서울",name:"신세계백화점 본점",dept:"중구 · 명동",b:[["onimaru",N("FFG6iObT"),"오니마루 × 도제 함께 운영"],["doje",N("FFG6iObT")]]},
+  {r:"서울",name:"신세계백화점 타임스퀘어점",dept:"영등포",b:[["onimaru",N("FHOoV6SG")],["doje",N("xQeECxf8")]]},
+  {r:"서울",name:"롯데백화점 본점",dept:"중구 · 명동",b:[["okome",N("5iTVTefz")]]},
+  {r:"서울",name:"롯데백화점 노원점",dept:"노원",b:[["ssam",N("FXnmWN8s")]]},
+  {r:"서울",name:"롯데백화점 건대스타시티점",dept:"광진 · 건대입구",b:[["doje",N("x3j4uCtg")],["ssam",N("x3j4uCtg")]]},
+  {r:"서울",name:"롯데백화점 김포공항점",dept:"강서",b:[["ssam",N("FZ8Fg2eT")]]},
+  {r:"서울",name:"더현대 서울",dept:"영등포 · 여의도",b:[["yuburo",N("Fy2BLM6A")],["bao",N("Fy2BLM6A"),"유부로 바로 옆"],["quon",N("Fmfw7OsJ")]]},
+  // 경기·인천
+  {r:"경기·인천",name:"신세계백화점 사우스시티점",dept:"용인 · 죽전 (구 경기점)",b:[["doje",N("F74rJdOQ")]]},
+  {r:"경기·인천",name:"신세계백화점 의정부점",dept:"의정부",b:[["doje",N("x8tnI6Zt")]]},
+  {r:"경기·인천",name:"신세계백화점 하남점",dept:"하남",b:[["doje",N("5uIEbeQg")]]},
+  {r:"경기·인천",name:"현대백화점 판교점",dept:"성남 · 판교",b:[["bao",N("GxLJF5N3")]]},
+  {r:"경기·인천",name:"롯데백화점 평촌점",dept:"안양",b:[["doje",N("Gzdb1BUR")]]},
+  {r:"경기·인천",name:"롯데백화점 동탄점",dept:"화성 · 동탄역",b:[["doje",N("5RhHvBkF")]]},
+  {r:"경기·인천",name:"롯데백화점 안산점",dept:"안산",b:[["doje",N("5tfKToPe")]]},
+  {r:"경기·인천",name:"롯데백화점 인천점",dept:"인천 · 구월",b:[["doje",N("xFLfPbZr")]]},
+  {r:"경기·인천",name:"스타필드 안성",dept:"안성",b:[["doje",N("xpr23xKq")]]},
+  // 대구
+  {r:"대구",name:"신세계백화점 대구점",dept:"동구 · 동대구역",isNew:true,b:[["onimaru",N("FIce9HrZ"),"2026.8.30 오픈"],["doje",N("5A3d4dr6")]]},
+  {r:"대구",name:"더현대 대구",dept:"중구",b:[["yuburo",N("5V8W47ep")]]},
+  // 부산
+  {r:"부산",name:"신세계백화점 센텀시티점",dept:"해운대",b:[["doje",N("GhbTcVl2")]]},
+  {r:"부산",name:"롯데백화점 부산본점",dept:"부산진 · 서면",b:[["okome",N("F05GUy3c")]]},
+  // 광주
+  {r:"광주",name:"신세계백화점 광주점",dept:"서구 · 광천",b:[["onimaru",N("G2YLs5JE")],["doje",N("5yP31kp7")]]},
+  // 대전
+  {r:"대전",name:"신세계백화점 Art&Science",dept:"대전 · 유성 · 엑스포",b:[["onimaru",N("GWW5NuXJ")],["doje",N("FG7YHR3H")]]},
+  // 전주
+  {r:"전주",name:"롯데백화점 전주점",dept:"전주 · 완산",b:[["rolly",N("5u9i8aRo")]]}
+];
+const REGIONS = ["전체","서울","경기·인천","대구","부산","광주","대전","전주"];
+let region="전체", brand=null;
+
+// stats
+const total = STORES.reduce((a,s)=>a+s.b.length,0);
+document.getElementById('stStores').textContent = total;
+document.getElementById('stCities').textContent = new Set(STORES.map(s=>s.r)).size + 1; // 경기·인천 counts as 2
+
+// brands
+const bwrap=document.getElementById('brands');
+Object.entries(BRANDS).forEach(([k,v])=>{
+  const cnt=STORES.reduce((a,s)=>a+s.b.filter(x=>x[0]===k).length,0);
+  const el=document.createElement('button');
+  el.className='brand'; el.style.setProperty('--bc',v.color); el.type='button'; el.id='brand-'+k;
+  el.innerHTML=`<div class="mono">${v.en}</div><b>${v.name}</b><em>${v.desc}</em><div class="cnt">${cnt}개 매장 · ${v.sig}</div>`;
+  el.addEventListener('click',()=>{brand = brand===k?null:k; render();});
+  bwrap.appendChild(el);
+});
+
+// tabs
+const twrap=document.getElementById('tabs');
+REGIONS.forEach(r=>{
+  const b=document.createElement('button'); b.className='tab'; b.type='button'; b.textContent=r; b.id='tab-'+r;
+  b.addEventListener('click',()=>{region=r; render();});
+  twrap.appendChild(b);
+});
+
+function render(){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.textContent===region));
+  document.querySelectorAll('.brand').forEach(t=>t.classList.toggle('on',t.id==='brand-'+brand));
+  const fb=document.getElementById('filterbar');
+  fb.innerHTML = brand ? `<span>${BRANDS[brand].name} 매장만 보는 중</span><button class="x" type="button" id="clearBrand">전체 브랜드 보기</button>` : `<span>${region==='전체'?'전국 '+STORES.length+'개 점포':region+' 매장'}</span>`;
+  const cb=document.getElementById('clearBrand'); if(cb) cb.addEventListener('click',()=>{brand=null;render();});
+
+  const list=document.getElementById('list'); list.innerHTML='';
+  const regs = region==='전체' ? REGIONS.slice(1) : [region];
+  let shown=0;
+  regs.forEach(r=>{
+    const stores=STORES.filter(s=>s.r===r && (!brand || s.b.some(x=>x[0]===brand)));
+    if(!stores.length) return;
+    shown+=stores.length;
+    const sec=document.createElement('section'); sec.className='region';
+    sec.innerHTML=`<h3>${r} <span>${stores.length}개 점포</span></h3>`;
+    stores.forEach(s=>{
+      const rows=s.b.filter(x=>!brand||x[0]===brand).map(([k,url,note])=>{
+        const v=BRANDS[k];
+        const btn = url ? `<a class="btn" href="${url}" target="_blank" rel="noopener">네이버 지도</a>` : `<span class="btn soon">지도 준비 중</span>`;
+        return `<div class="row"><div class="bl"><span class="dot" style="--bc:${v.color}"></span><div><div class="bn">${v.name}</div>${note?`<div class="bs">${note}</div>`:''}</div></div>${btn}</div>`;
+      }).join('');
+      const card=document.createElement('article'); card.className='store';
+      card.innerHTML=`<div class="head"><div class="name">${s.name}${s.isNew?'<span class="new">NEW</span>':''}</div><div class="dept">${s.dept}</div></div><div class="rows">${rows}</div>`;
+      sec.appendChild(card);
+    });
+    list.appendChild(sec);
+  });
+  if(!shown) list.innerHTML='<p class="empty">이 지역에는 해당 브랜드 매장이 아직 없어요.</p>';
+}
+render();
+</script>
+</body>
+</html>
