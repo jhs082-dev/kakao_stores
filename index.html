@@ -48,9 +48,11 @@ a{color:inherit}
 h2{font-size:17px;margin:30px 0 12px;font-weight:700;display:flex;align-items:baseline;gap:10px}
 h2 small{font-size:12px;color:var(--ink-3);font-weight:500}
 .brands{display:flex;gap:10px;overflow-x:auto;padding:2px 0 10px;margin:0 -16px;padding-inline:16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.brand{flex:0 0 200px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:border-color .15s}
+.brand{text-align:left;flex:0 0 200px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:border-color .15s}
 .brand:hover,.brand.on{border-color:var(--bc)}
 .brand .mono{width:34px;height:34px;border-radius:9px;background:var(--bc);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Source Sans 3",sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em}
+.brand .bi{height:52px;width:160px;object-fit:contain;object-position:left center;display:block;margin-bottom:4px}
+.brand .bi.round{width:44px;height:44px;border-radius:12px;object-fit:cover}
 .brand b{font-size:15px;margin-top:2px}
 .brand em{font-style:normal;font-size:12.5px;color:var(--ink-2);line-height:1.45}
 .brand .cnt{font-size:11.5px;color:var(--ink-3);margin-top:auto;padding-top:6px}
@@ -97,14 +99,9 @@ h2 small{font-size:12px;color:var(--ink-3);font-weight:500}
 <body>
 <div class="wrap">
 <header class="hero">
-  <span class="logo">All Too Delicious</span>
+  <img src="logos/atd.png" alt="atd." style="height:26px;width:auto;display:block" onerror="this.outerHTML='<span class=&quot;logo&quot;>All Too Delicious</span>'">
   <h1>올투딜리셔스 매장 안내</h1>
-  <p>교토 오니마루부터 도제 유부초밥까지, 전국 백화점 식품관에서 만나는 8개 브랜드. 가까운 매장을 찾고 네이버 지도로 바로 가세요.</p>
-  <div class="stats">
-    <div><b class="num" id="stStores">0</b><span>매장</span></div>
-    <div><b class="num">8</b><span>브랜드</span></div>
-    <div><b class="num" id="stCities">0</b><span>도시</span></div>
-  </div>
+  <p>교토오니마루부터 도제 유부초밥까지, 전국 백화점 식품관에서 만나는 8개 브랜드. 가까운 매장을 찾고 네이버 지도로 바로 찾아오세요!</p>
 </header>
 
 <h2>브랜드 <small>카드를 누르면 그 브랜드 매장만 보여요</small></h2>
@@ -128,14 +125,14 @@ h2 small{font-size:12px;color:var(--ink-3);font-weight:500}
 
 <script>
 const BRANDS = {
-  onimaru:{name:"교토 오니마루",en:"KO",color:"var(--c-onimaru)",desc:"교토에서 온 오니기리·야끼무스비. 일본 레시피 그대로, 토핑은 한국식으로 넉넉하게.",sig:"명란참치마요 오니기리 · 야끼무스비"},
-  doje:{name:"도제",en:"DJ",color:"var(--c-doje)",desc:"2014년부터 이어온 올투딜리셔스의 원점. 대왕유부초밥과 달마다 바뀌는 토핑 유부초밥.",sig:"대왕유부초밥 · 토핑 유부초밥"},
-  okome:{name:"오코메상",en:"OK",color:"var(--c-okome)",desc:"'쌀의 무한변신'. 유부초밥·오니기리·무스비·라이스샌드를 한자리에서.",sig:"라이스샌드 · 무스비"},
-  yuburo:{name:"유부로",en:"YB",color:"var(--c-yuburo)",desc:"현대백화점에서 만나는 유부초밥. 우리가 가는 길이 곧 유부의 길.",sig:"유부초밥 세트"},
-  ssam:{name:"딜라잇쌈",en:"DS",color:"var(--c-ssam)",desc:"익숙한 쌈에 모던함을 더한 한 끼. 채소와 단백질을 한 손에.",sig:"쌈 도시락"},
-  bao:{name:"아이엠바오",en:"IB",color:"var(--c-bao)",desc:"취향껏 골라 먹는 아메리칸 차이니즈. 바오와 볼 메뉴.",sig:"바오 · 크리스피 포크밸리"},
-  quon:{name:"꾸온",en:"QN",color:"var(--c-quon)",desc:"베트남 여행의 기억을 담은 스프링롤과 베트남 푸드.",sig:"스프링롤 · 포두부롤"},
-  rolly:{name:"롤리볼리",en:"RB",color:"var(--c-rolly)",desc:"가볍게 즐기는 롤. 탄수화물은 덜고 채소는 더한 키토 올인원.",sig:"오이당근롤 · 키토 올인원팩"}
+  onimaru:{logo:"logos/onimaru.png",logoShape:"wide",name:"교토 오니마루",en:"KO",color:"var(--c-onimaru)",desc:"교토에서 온 오니기리·야끼무스비. 일본 레시피 그대로, 토핑은 한국식으로 넉넉하게.",sig:"명란참치마요 오니기리 · 야끼무스비"},
+  doje:{logo:"logos/doje.png",logoShape:"wide",name:"도제",en:"DJ",color:"var(--c-doje)",desc:"2014년부터 이어온 올투딜리셔스의 원점. 대왕유부초밥과 달마다 바뀌는 토핑 유부초밥.",sig:"대왕유부초밥 · 토핑 유부초밥"},
+  okome:{logo:"logos/okomesan.png",logoShape:"wide",name:"오코메상",en:"OK",color:"var(--c-okome)",desc:"'쌀의 무한변신'. 유부초밥·오니기리·무스비·라이스샌드를 한자리에서.",sig:"라이스샌드 · 무스비"},
+  yuburo:{logo:"logos/yuburo.png",logoShape:"wide",name:"유부로",en:"YB",color:"var(--c-yuburo)",desc:"현대백화점에서 만나는 유부초밥. 우리가 가는 길이 곧 유부의 길.",sig:"유부초밥 세트"},
+  ssam:{logo:"logos/delightssam.png",logoShape:"wide",name:"딜라잇쌈",en:"DS",color:"var(--c-ssam)",desc:"익숙한 쌈에 모던함을 더한 한 끼. 채소와 단백질을 한 손에.",sig:"쌈 도시락"},
+  bao:{logo:"logos/iambao.png",logoShape:"wide",name:"아이엠바오",en:"IB",color:"var(--c-bao)",desc:"취향껏 골라 먹는 아메리칸 차이니즈. 바오와 볼 메뉴.",sig:"바오 · 크리스피 포크밸리"},
+  quon:{logo:"logos/quon.png",logoShape:"wide",name:"꾸온",en:"QN",color:"var(--c-quon)",desc:"베트남 여행의 기억을 담은 스프링롤과 베트남 푸드.",sig:"스프링롤 · 포두부롤"},
+  rolly:{logo:"logos/rollybolly.png",logoShape:"wide",name:"롤리볼리",en:"RB",color:"var(--c-rolly)",desc:"가볍게 즐기는 롤. 탄수화물은 덜고 채소는 더한 키토 올인원.",sig:"오이당근롤 · 키토 올인원팩"}
 };
 const N = s => "https://naver.me/" + s;
 const STORES = [
@@ -174,10 +171,6 @@ const STORES = [
 const REGIONS = ["전체","서울","경기·인천","대구","부산","광주","대전","전주"];
 let region="전체", brand=null;
 
-// stats
-const total = STORES.reduce((a,s)=>a+s.b.length,0);
-document.getElementById('stStores').textContent = total;
-document.getElementById('stCities').textContent = new Set(STORES.map(s=>s.r)).size + 1; // 경기·인천 counts as 2
 
 // brands
 const bwrap=document.getElementById('brands');
@@ -185,7 +178,8 @@ Object.entries(BRANDS).forEach(([k,v])=>{
   const cnt=STORES.reduce((a,s)=>a+s.b.filter(x=>x[0]===k).length,0);
   const el=document.createElement('button');
   el.className='brand'; el.style.setProperty('--bc',v.color); el.type='button'; el.id='brand-'+k;
-  el.innerHTML=`<div class="mono">${v.en}</div><b>${v.name}</b><em>${v.desc}</em><div class="cnt">${cnt}개 매장 · ${v.sig}</div>`;
+  const icon = v.logo ? `<img class="bi${v.logoShape==='square'?' round':''}" src="${v.logo}" alt="${v.name} 로고" onerror="this.outerHTML='<div class=&quot;mono&quot;>${v.en}</div>'">` : `<div class="mono">${v.en}</div>`;
+  el.innerHTML=`${icon}<b>${v.name}</b><em>${v.desc}</em><div class="cnt">${cnt}개 매장 · ${v.sig}</div>`;
   el.addEventListener('click',()=>{brand = brand===k?null:k; render();});
   bwrap.appendChild(el);
 });
