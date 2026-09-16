@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light only">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="올투딜리셔스 8개 브랜드(교토 오니마루·도제·오코메상·유부로·딜라잇쌈·아이엠바오·꾸온·롤리볼리) 전국 백화점 매장 안내">
 <meta property="og:title" content="올투딜리셔스 매장 안내">
@@ -12,22 +13,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
 :root{
+  color-scheme: light only;
   --paper:#FAF6F0; --card:#FFFFFF; --ink:#26201A; --ink-2:#5F564D; --ink-3:#8E857B; --line:#E8E0D5;
   --brown:#6B4A2B; --brown-deep:#4A3119; --brown-soft:#F1E7DA; --cream:#F6EEE2;
   --naver:#03C75A; --kakao:#FEE500;
   --c-onimaru:#8E3B2F; --c-doje:#6B4A2B; --c-okome:#2F5D50; --c-yuburo:#B8742A; --c-ssam:#4E7A3A; --c-bao:#B23A48; --c-quon:#2E6E8E; --c-rolly:#7A5BA3;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#1A1512; --card:#241D18; --ink:#F0E8DD; --ink-2:#C9BDAF; --ink-3:#8F8478; --line:#3A3028;
-    --brown:#D9B088; --brown-deep:#EBCFAE; --brown-soft:#2E2419; --cream:#2A211A;
-    --c-onimaru:#E08A7A; --c-doje:#D9B088; --c-okome:#8CC7B4; --c-yuburo:#E6B06A; --c-ssam:#9CCB80; --c-bao:#EE8E9A; --c-quon:#86BEDC; --c-rolly:#C3ACE3;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#1A1512; --card:#241D18; --ink:#F0E8DD; --ink-2:#C9BDAF; --ink-3:#8F8478; --line:#3A3028;
-  --brown:#D9B088; --brown-deep:#EBCFAE; --brown-soft:#2E2419; --cream:#2A211A;
-  --c-onimaru:#E08A7A; --c-doje:#D9B088; --c-okome:#8CC7B4; --c-yuburo:#E6B06A; --c-ssam:#9CCB80; --c-bao:#EE8E9A; --c-quon:#86BEDC; --c-rolly:#C3ACE3;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR","Source Sans 3",system-ui,sans-serif;font-size:15px;line-height:1.6;padding-inline:16px;padding-block:0 56px}
